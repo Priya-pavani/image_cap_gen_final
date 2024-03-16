@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 import io
-from utils.caption_generator import initialising
+#from utils.caption_generator import initialising
 from utils.cap_generation import query
 import os
 # st.set_page_config(page_title="Image Captioning", page_icon="📝")
