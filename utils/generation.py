@@ -1,8 +1,9 @@
 import requests
 
-API_TOKEN = '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'
+
 API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
-headers = {"Authorization": f"Bearer {API_TOKEN}"}
+api_token =  st.secrets["api_token"]
+headers = {"Authorization": api_token}
 
 
 def get_prompt(inp):
