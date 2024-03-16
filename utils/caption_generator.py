@@ -2,13 +2,14 @@ import os
 from transformers import VisionEncoderDecoderModel, ViTFeatureExtractor, AutoTokenizer
 from huggingface_hub import hf_hub_download
 import torch
-
+import streamlit as st
+api_token = st.secrets['api_token']
 def initialising():
     # Directory to store the downloaded files
     download_dir = "Json_downloads"
     os.makedirs(download_dir, exist_ok=True)
 
-    HUGGING_FACE_API_KEY = os.environ.get("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")
+    HUGGING_FACE_API_KEY = os.environ.get(api_token.split()[-1])
     model_id = "nlpconnect/vit-gpt2-image-captioning"
     filenames = ["README.md",
                 "config.json",
