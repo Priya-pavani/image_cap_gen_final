@@ -15,8 +15,8 @@ st.title("Image Captioning App")
 
 st.write("Upload an image and let's generate a caption!")
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
-
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg"])
+generate = st.button("Generate Caption")
 #model, feature_extractor, tokenizer = initialising()
 
 
@@ -70,25 +70,27 @@ def process_image(image, preds):
 
 def main():
     #model, feature_extractor, tokenizer = initialising()
-    if uploaded_file is not None:
-        # Read the image file as bytes
-        image_bytes = uploaded_file.read()
+    if generate:
         
-        # Convert the image bytes to PIL Image
-        image = Image.open(io.BytesIO(image_bytes))
-        image1 = image
-        image.save('temp.jpg')
-        a = query('temp.jpg')
-        pred = a[0]['generated_text']
-        process_image(image1, pred)
-        file_path = "temp.jpg"  # Example file path
-
-        # Check if the file exists before deleting
-        if os.path.exists(file_path):
-            os.remove(file_path)
-            print(f"File {file_path} deleted successfully.")
-        else:
-            print(f"File {file_path} does not exist.")
+        if uploaded_file is not None:
+            # Read the image file as bytes
+            image_bytes = uploaded_file.read()
+            
+            # Convert the image bytes to PIL Image
+            image = Image.open(io.BytesIO(image_bytes))
+            image1 = image
+            image.save('temp.jpg')
+            a = query('temp.jpg')
+            pred = a[0]['generated_text']
+            process_image(image1, pred)
+            file_path = "temp.jpg"  # Example file path
+    
+            # Check if the file exists before deleting
+            if os.path.exists(file_path):
+                os.remove(file_path)
+                print(f"File {file_path} deleted successfully.")
+            else:
+                print(f"File {file_path} does not exist.")
 
 if __name__ == "__main__":
     main()
