@@ -21,7 +21,7 @@ st.write(
 
 # Taking text input from the user
 user_input = st.text_input("Enter description of the image you want to create:", placeholder = "Describe your image here", key = 'submit')
-button_status = st.button("Generate Image,")
+button_status = st.button("Generate Image")
 if button_status :
 
     with st.status("Generating the Image see dropdown to see the status..."):
