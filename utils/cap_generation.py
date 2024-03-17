@@ -1,7 +1,7 @@
 import requests
 import streamlit as st
 from PIL import Image
-API_URL = "https://api-inference.huggingface.co/models/nlpconnect/vit-gpt2-image-captioning"
+API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large"
 api_token =  st.secrets["api_token"]
 headers = {"Authorization": api_token}
 
